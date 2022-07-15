@@ -1,48 +1,41 @@
-import refs from './refs';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
-export function renderMarkup(params) {
-  if (params.length > 10) {
-    Notify.info('Too many matches found. Please enter a more specific name.');
-    return;
-  }
-  if (params.length === 1) {
-    renderMarkupOneCountry(params[0]);
-  } else renderMarkupList(params);
-}
-
-function renderMarkupList(data) {
-  const markupList = data
+export function renderMarkup(data) {
+  console.log(data);
+  return data
     .map(
-      item => `
-        <li class = "image-wrap">
-          <img width = "24" height = "24" src = "${item.flags.svg}"/>
-          <p>${item.name.official}</p>
-        </li>`
+      ({
+        webformatURL,
+        largeImageURL,
+        tags,
+        likes,
+        views,
+        comments,
+        downloads,
+      }) => /*HTML*/ `
+    <a class = 'photo-link' href = "${largeImageURL}">
+      <div class="photo-card">
+          <div class="img-wrap">
+            <img class = 'card-img' width = "150" src="${webformatURL}" alt="${tags}" loading="lazy" />
+          </div>
+        <ul class="info">
+          <li class="info__item">
+            <b>Likes</b>
+            <span class = "info__item-span" >${likes}</span>
+          </li>
+          <li class="info__item">
+            <b>Views</b>
+            <span class = "info__item-span" >${views}</span>
+          </li>
+          <li class="info__item">
+            <b>Comments</b>
+            <span class = "info__item-span" >${comments}</span>
+          </li>
+          <li class="info__item">
+            <b>Downloads</b>
+            <span class = "info__item-span" >${downloads}</span>
+          </li>
+        </ul>
+      </div>
+    </a>`
     )
     .join('');
-
-  refs.listCountries.innerHTML = markupList;
-}
-
-function renderMarkupOneCountry(data) {
-  const language = Object.values(data.languages).join(', ');
-  const markupOneCountry = `<div class="photo-card">
-  <img src="" alt="" loading="lazy" />
-  <div class="info">
-    <p class="info-item">
-      <b>Likes</b>
-    </p>
-    <p class="info-item">
-      <b>Views</b>
-    </p>
-    <p class="info-item">
-      <b>Comments</b>
-    </p>
-    <p class="info-item">
-      <b>Downloads</b>
-    </p>
-  </div>
-</div>`;
-
-  refs.oneCounty.innerHTML = markupOneCountry;
 }

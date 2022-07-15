@@ -1,14 +1,7 @@
 export default {
-  input: document.querySelector('#search-box'),
-  oneCounty: document.querySelector('.country-info'),
-  listCountries: document.querySelector('.country-list'),
+  form: document.querySelector('#search-form'),
+  input: document.querySelector('input'),
+  // button: document.querySelector('button'),
+  loadMoreBtn: document.querySelector('.load-more'),
+  gallery: document.querySelector('.gallery'),
 };
-
-// function refs() {
-//   return {
-//     input: document.querySelector('#search-box'),
-//     oneCounty: document.querySelector('.country-info'),
-//     listCountries: document.querySelector('.country-list'),
-//   };
-// }
-// export default refs;
