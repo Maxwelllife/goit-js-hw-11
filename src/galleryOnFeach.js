@@ -39,7 +39,7 @@ function onSubmitForm(event) {
       }
       Notify.info(`Hooray! We found ${data.totalHits} images.`);
 
-      if (getImages.per_page < data.totalHits) {
+      if (getImages.image_per_page < data.totalHits) {
         refs.loadMoreBtn.classList.remove('is-hidden');
       }
     })
@@ -65,7 +65,8 @@ function onClickOpenMoreInfo(event) {
         behavior: 'smooth',
       });
 
-      getImages.totalPage = data.totalHits / getImages.per_page;
+      getImages.totalPage = data.totalHits / getImages.image_per_page;
+
       if (getImages.page > getImages.totalPage) {
         refs.loadMoreBtn.classList.add('is-hidden');
         Notify.failure(

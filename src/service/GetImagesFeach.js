@@ -9,13 +9,13 @@ export class GetImages {
     image_type: 'photo',
     orientation: 'horizontal',
     safesearch: true,
-    per_page: 40,
+    image_per_page: 40,
   });
 
   constructor() {
     this.totalPage = null;
     this.page = 1;
-    this.per_page = 40;
+    this.image_per_page = 40;
   }
 
   feachPhotos(query) {
