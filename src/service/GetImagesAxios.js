@@ -11,14 +11,15 @@ export class GetImages {
   }
 
   feachPhotos(query) {
-    return axios.get(`?page=${this.page}&q=${query}`, {
+    return axios.get(`?q=${query}`, {
       baseURL: this.#BASE_URL,
       params: {
         key: this.#API_KEY,
         image_type: 'photo',
         orientation: 'horizontal',
         safesearch: true,
-        per_page: 40,
+        per_page: this.image_per_page,
+        page: this.page,
       },
     });
   }

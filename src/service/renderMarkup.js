@@ -1,5 +1,4 @@
 export function renderMarkup(data) {
-  console.log(data);
   return data
     .map(
       ({

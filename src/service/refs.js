@@ -1,7 +1,7 @@
 export default {
   form: document.querySelector('#search-form'),
   input: document.querySelector('input'),
-  // button: document.querySelector('button'),
+  targetElement: document.querySelector('.target-element'),
   loadMoreBtn: document.querySelector('.load-more'),
   gallery: document.querySelector('.gallery'),
 };
