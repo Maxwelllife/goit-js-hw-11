@@ -60,7 +60,7 @@ const intersectionObserver = new IntersectionObserver(entries => {
     try {
       const { data } = await getImages.feachPhotos(inputValue);
       refs.gallery.insertAdjacentHTML('beforeend', renderMarkup(data.hits));
-
+      lightbox.refresh();
       if (getImages.page > getImages.quantityPages) {
         intersectionObserver.unobserve(refs.targetElement);
         Notify.failure(
